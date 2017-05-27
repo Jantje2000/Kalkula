@@ -5,6 +5,10 @@ gui = Tk()
 gui.title("Calculator")
 gui.geometry("500x500")
 
+def backspace():
+    calc_length = len(calc.get()) - 1
+    calc.delete(calc_length, END)
+
 def solve():
     solve = eval(calc.get())
     calc.delete(0, END)
@@ -30,6 +34,8 @@ calc.place(relx=.5, rely=.1, anchor="c")
 calc.focus_set()
 
 #row 1
+backspace = Button(gui, text="X<", width=8, height=4, command=backspace)
+backspace.place(relx=.59, rely=.2, anchor="c")
 plus = Button(gui, text="+", width=8, height=4, command=lambda: number("+"))
 plus.place(relx=.81, rely=.2, anchor="c")
 
